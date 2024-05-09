@@ -1,11 +1,9 @@
-import { routes } from "./post";
-
 module.exports = {
   routes: [
-    {
+    { // Path defined with a URL parameter
       method: 'GET',
       path: '/posts/count',
-      handle: 'post.count'
+      handler: 'post.count',
     }
-  ],
-};
+  ]
+}
