@@ -864,6 +864,7 @@ export interface ApiPostPost extends Schema.CollectionType {
     singularName: 'post';
     pluralName: 'posts';
     displayName: 'post';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -871,7 +872,6 @@ export interface ApiPostPost extends Schema.CollectionType {
   attributes: {
     title: Attribute.String & Attribute.Required;
     cover: Attribute.Media & Attribute.Required;
-    content: Attribute.Blocks & Attribute.Required;
     slug: Attribute.UID<'api::post.post', 'title'> & Attribute.Required;
     author: Attribute.Relation<
       'api::post.post',
@@ -883,6 +883,7 @@ export interface ApiPostPost extends Schema.CollectionType {
       'manyToOne',
       'api::category.category'
     >;
+    content: Attribute.RichText & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
